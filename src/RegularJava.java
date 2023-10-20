@@ -3,9 +3,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegularJava {
+    /**
+     * Метод валидации IP-адреса
+     * @param ip
+     * @return
+     */
     public static boolean validIp(String ip)
     {
-        //Pattern pattern = Pattern.compile("((0|1\\d{0,2}|2([0-4][0-9]|5[0-5]))\\.){3}(0|1\\d{0,2}|2([0-4][0-9]|5[0-5]))");
         String pattern = "^((\\d{1,3})\\.){3}(\\d{1,3})";
         if (Pattern.matches(pattern,ip))
         {
@@ -17,11 +21,23 @@ public class RegularJava {
         }
         else return false;
     }
+
+    /**
+     * Метод валидации GUID
+     * @param guid
+     * @return
+     */
     public static boolean validGUID(String guid)
     {
         String pattern = "^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$";
         return Pattern.matches(pattern, guid);
     }
+
+    /**
+     * Метод валидации URL адреса
+     * @param url
+     * @return
+     */
     public static boolean validURl(String url)
     {
         Pattern ip = Pattern.compile("^((\\d{1,3})\\.){3}(\\d{1,3})");
@@ -32,6 +48,12 @@ public class RegularJava {
             return Pattern.matches(pattern,url);
         }
     }
+
+    /**
+     * Метод валидации пароля
+     * @param password
+     * @return
+     */
     public static boolean validPassword(String password)
     {
         String pattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[\\w]{8,}$";   // ?= заглядывание вперед
