@@ -28,9 +28,7 @@ public class RegularJava {
         Matcher matcher = ip.matcher(url);
         if (matcher.find()) return false;
         else {
-            //String pattern = "^(https?://)?([0-9a-zA-Z][0-9a-zA-Z-]*[0-9a-zA-Z](\\.[0-9a-zA-Z][0-9a-zA-Z-]*[0-9a-zA-Z]+)+)(:[0-9]+)?(/[^?#]*)?(\\?[^#]*=.*)?(#.*)?$";
             String pattern = "^(https?://)?(www\\.)?(((?!www\\b)[\\w][\\w-]*[\\w](\\.[\\w][\\w-]*[\\w]+)+))(:[0-9]+)?(/[^?#]*)?(\\?[^#]*=.*)?(#.*)?$";
-            //String pattern = "^(https?://)?((www)(\\.[\\w][\\w-]*[\\w]+){2,})|(\\.[\\w][\\w-]*[\\w]+){2,}))(:[0-9]+)?(/[^?#]*)?(\\?[^#]*=.*)?(#.*)?$";
             return Pattern.matches(pattern,url);
         }
     }
