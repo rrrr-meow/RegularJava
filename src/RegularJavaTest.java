@@ -26,7 +26,8 @@ class RegularJavaTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"126176-fn37-237d-3742-jhfbhbhdujnje", "e02fd0e400fd090Aca300d00a0038ba0"})
+    @ValueSource(strings = {"126176-fn37-237d-3742-jhfbhbhdujnje", "e02fd0e400fd090Aca300d00a0038ba0", "e02fd0e4-00fd-090A-0d00a0038baG",
+            "AAAAAAAA-BBBB-CCCC-DDDD-EEEEEEEEEEE", "{{g02fd0e4-00fd-09-A-ca30-0d00a003)ba0"})
     void inValidGUID(String guid) {
         assertFalse(RegularJava.validGUID(guid));
     }
@@ -40,19 +41,19 @@ class RegularJavaTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"Just Text", "http://a.com", "https://ghghg.hhj...hdsk.com", "www.com"})
+    @ValueSource(strings = {"Just Text", "http://a.com", "https://-example.com", "https://ghghg.hhj...hdsk.com", "www.com"})
     void inValidURl(String url) {
         assertFalse(RegularJava.validURl(url));
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"C00l_Pass", "SupperPas1"})
+    @ValueSource(strings = {"C00l_Pass", "SupperPas1", "1t1sNewPass", "Top100SoNgS", "JwsJ_2015", "hgjFk76h6"})
     void validPassword(String passwd) {
         assertTrue(RegularJava.validPassword(passwd));
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"Cool_pass", "C00l", "2    kjfnG"})
+    @ValueSource(strings = {"Cool_pass", "C00l", "2    kjfnG", "oopsie-no-no-no", "75765927497", "a b c d 0 G"})
     void inValidPassword(String passwd) {
         assertFalse(RegularJava.validPassword(passwd));
     }
