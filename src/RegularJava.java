@@ -10,16 +10,8 @@ public class RegularJava {
      */
     public static boolean validIp(String ip)
     {
-        String pattern = "^((\\d{1,3})\\.){3}(\\d{1,3})";
-        if (Pattern.matches(pattern,ip))
-        {
-            String[] s = ip.split("\\.");
-            for (String str : s) {
-                if (!(Integer.parseInt(str) >= 0 && Integer.parseInt(str) <= 255)) return false;
-            }
-            return true;
-        }
-        else return false;
+        String pattern = "^((25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)$";
+        return Pattern.matches(pattern, ip);
     }
 
     /**
